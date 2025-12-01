@@ -1,0 +1,11 @@
+po_number,order_date,vendor,item,quantity,unit_price,status,location
+PO-001,2024-01-15,Acme Corp,Widget A,100,25.50,Completed,New York
+PO-002,2024-01-16,Global Supplies,Component B,50,150.00,Pending,Los Angeles
+PO-003,2024-01-17,Tech Parts Inc,Gadget C,200,10.25,Completed,Chicago
+PO-004,2024-01-18,Acme Corp,Widget A,75,25.50,In Progress,Miami
+PO-005,2024-01-19,Industrial Co,Material D,500,5.00,Completed,Seattle
+PO-006,2024-01-20,Global Supplies,Component B,25,150.00,Completed,Denver
+PO-007,2024-01-21,Tech Parts Inc,Gadget C,150,10.25,Pending,Boston
+PO-008,2024-01-22,Acme Corp,Widget A,80,25.50,Completed,Houston
+PO-009,2024-01-23,Industrial Co,Material D,300,5.00,Completed,Phoenix
+PO-010,2024-01-24,Global Supplies,Component E,60,200.00,In Progress,Atlanta

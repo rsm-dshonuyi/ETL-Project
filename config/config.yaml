@@ -1,0 +1,44 @@
+# ETL Pipeline Configuration
+
+# Snowflake Connection Settings
+snowflake:
+  account: "${SNOWFLAKE_ACCOUNT}"
+  user: "${SNOWFLAKE_USER}"
+  password: "${SNOWFLAKE_PASSWORD}"
+  database: "PURCHASE_ORDERS_DB"
+  schema: "PUBLIC"
+  warehouse: "COMPUTE_WH"
+  role: "SYSADMIN"
+
+# PostgreSQL Connection Settings
+postgres:
+  host: "${POSTGRES_HOST}"
+  port: 5432
+  database: "${POSTGRES_DATABASE}"
+  user: "${POSTGRES_USER}"
+  password: "${POSTGRES_PASSWORD}"
+
+# Data Source Paths
+data_sources:
+  csv:
+    purchase_orders: "data/raw/purchase_orders.csv"
+  xml:
+    weather_data: "data/raw/weather_data.xml"
+  postgres:
+    table_name: "purchase_orders"
+  snowflake_marketplace:
+    database: "WEATHER_DATA"
+    schema: "PUBLIC"
+    table: "HISTORY"
+
+# Target Tables
+target_tables:
+  purchase_orders: "PURCHASE_ORDERS"
+  weather_data: "WEATHER_DATA"
+  combined_analytics: "PURCHASE_WEATHER_ANALYTICS"
+
+# Transformation Settings
+transformations:
+  date_format: "%Y-%m-%d"
+  null_handling: "drop"
+  batch_size: 10000
