@@ -126,19 +126,24 @@ class SnowflakeMarketplaceExtractor:
             WHERE 1=1
         """
 
+        params = {}
+
         if location:
-            query += f" AND CITY = '{location}'"
+            query += " AND CITY = %(location)s"
+            params["location"] = location
         if start_date:
-            query += f" AND DATE >= '{start_date}'"
+            query += " AND DATE >= %(start_date)s"
+            params["start_date"] = start_date
         if end_date:
-            query += f" AND DATE <= '{end_date}'"
+            query += " AND DATE <= %(end_date)s"
+            params["end_date"] = end_date
 
         query += " ORDER BY DATE DESC"
 
         if limit:
-            query += f" LIMIT {limit}"
+            query += f" LIMIT {int(limit)}"
 
-        return self.extract(query)
+        return self.extract(query, params if params else None)
 
     def list_available_tables(self) -> pd.DataFrame:
         """
